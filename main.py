@@ -3,10 +3,10 @@ import threading
 import time
 
 import globals
-import auth
-import batch
-import storage
-import utils
+from auth import *
+from batch import *
+from storage import *
+from utils import *
 
 from googleapiclient.discovery import build
 
@@ -28,7 +28,7 @@ def main():
         messages = get_message_batch(service)
 
         if(len(messages) == 0):
-            print("Emails purged successfully")
+            print("Email's purged successfully")
             print(f"{CYAN}Emails deleted: {globals.total_del}{RESET}")
             print(f"{GREEN}Total bytes deleted: {globals.total_size/ (1024*1024):.2f} MB {RESET}")
             break

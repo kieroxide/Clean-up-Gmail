@@ -1,10 +1,10 @@
 from googleapiclient.errors import HttpError
-import utils
+from utils import *
 import globals
 
 def get_message_batch(service):
     service.users().messages().list(userId='me', q='').execute()
-    response = service.users().messages().list(userId='me', q=query, maxResults=request_size).execute()
+    response = service.users().messages().list(userId='me', q=globals.query, maxResults=globals.request_size).execute()
     messages = response.get('messages', [])
     return messages
 
